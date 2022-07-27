@@ -1,4 +1,4 @@
-function testFn(value: string): string {
+function test(value) {
     return `hello~${value}`
 }
 
@@ -13,3 +13,4 @@ function testFn3() {
 function testFn5() {
     
 }
+

@@ -10,9 +10,10 @@ h5sdk_files_temp.forEach(item => {
     if (item.indexOf('.sdk') >= 0) {
         const key  = item.substring(0, item.indexOf('.sdk')).toLocaleUpperCase();
         const file = fs.readFileSync(path.join(h5sdkPath, item)).toString();
-        console.log('file', require(path.join(h5sdkPath, item)));
         jsSdks[key] = file;
     }
 });
 
-export const loadScriptSdk = (moduleName: string) => jsSdks[moduleName.toLocaleUpperCase()];
+export const loadScriptSdk = (moduleName: string) => {
+    return jsSdks[moduleName.toLocaleUpperCase()];
+};

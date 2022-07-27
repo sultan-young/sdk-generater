@@ -1,3 +1,7 @@
-function _Currency(option, version) {
+function currency (option, version) {
   
+}
+
+export {
+    currency
 }

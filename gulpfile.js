@@ -15,7 +15,7 @@ function buildCore() {
     //   ignore: ['./src/static_sdk/**/*']
   })
   .pipe(tsProject()).js
-  .pipe(uglify())
+//   .pipe(uglify())
   .pipe(gulp.dest("dist"));
 }
 

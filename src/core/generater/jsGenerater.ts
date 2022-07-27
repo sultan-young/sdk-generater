@@ -1,4 +1,5 @@
 import { loadScriptSdk } from "../loader/loadScriptSdk";
+const gulp = require("gulp");
 
 
 class JsGenerater {
