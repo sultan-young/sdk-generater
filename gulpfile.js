@@ -5,6 +5,9 @@ const tsProject = ts.createProject("tsconfig.json");
 const path = require("path");
 const del = require("del");
 const uglify = require('gulp-uglify');
+const browserify = require('browserify')
+const tsify = require('tsify')
+const source = require("vinyl-source-stream");
 
 function clear(cb) {
   return del(["dist"]);
@@ -19,8 +22,23 @@ function buildCore() {
   .pipe(gulp.dest("dist"));
 }
 
+// 暂不使用
 function buildSdk() {
-    return gulp.src('./src/static_sdk/**/*')
+    return browserify({
+      basedir: '.',
+      debug: false,
+      entries: ["src/sdk_modules/track/src/main.ts"],
+      cache: {},
+      packageCache: {},
+    })
+    .plugin(tsify)
+    .transform("babelify", {
+      presets: ["es2015"],
+      extensions: [".js"],
+    })
+    .bundle()
+    .pipe(source("bundle.js"))
+    .pipe(gulp.dest("dist/sdk"))
 }
 
 
@@ -29,4 +47,4 @@ gulp.task("watch", (cb) => {
   cb();
 });
 
-gulp.task("build", series(clear, parallel(buildCore, buildSdk)));
+gulp.task("build", series(clear, parallel(buildCore)));

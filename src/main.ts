@@ -43,13 +43,12 @@ app.use(async (ctx, next) => {
 
 router.get("/sdk", async (ctx, next) => {
   await next();
-  // await loadCtrltrols(ctx)
   const path = ctx.path.replace(/\//g, "");
   const modules = parseModule(ctx.querystring);
   console.log('modules', modules);
 
   ctx.set("Content-Type", "text/javascript; charset=UTF-8");
-  ctx.body = generater.JsGen.build(modules);
+  ctx.body = generater.sdkGen.build(modules);
 });
 
 app.use(router.routes()).use(router.allowedMethods());

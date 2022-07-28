@@ -3,7 +3,7 @@ import { loadScriptSdk } from "../loader/loadScriptSdk";
 const gulp = require("gulp");
 
 
-class JsGenerater {
+class SdkGenerager {
     
     build(modules: IModule) {
         let template = ''
@@ -27,6 +27,6 @@ class JsGenerater {
     }
 }
 
-const jsGenerater = new JsGenerater();
+const sdkGenerager = new SdkGenerager();
 
-export default jsGenerater;
+export default sdkGenerager;

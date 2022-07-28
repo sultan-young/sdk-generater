@@ -1,7 +1,7 @@
-import jsGenerater from "./jsGenerater";
+import sdkGenerater from "./sdkGenerater";
 
 class Generater {
-    JsGen = jsGenerater;
+    sdkGen = sdkGenerater;
 }
 
 const generater = new Generater();
