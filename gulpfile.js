@@ -12,7 +12,7 @@ function clear(cb) {
 
 function buildCore() {
   return gulp.src('./src/**/*', {
-    //   ignore: ['./src/static_sdk/**/*']
+      ignore: ['./src/sdk_modules/**/*']
   })
   .pipe(tsProject()).js
 //   .pipe(uglify())
