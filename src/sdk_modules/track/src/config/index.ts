@@ -13,6 +13,7 @@ export class SdkConfig {
 	// 复写config
 	public static init(params: { countryCode: CountryCode, product_id: string } | undefined = undefined) {
 		const _countryCode = (params?.countryCode as undefined | CountryCode) || getUrlQueryParams()['countryCode'].toUpperCase() as CountryCode;
+		console.log('_countryCode', hostMap[_countryCode]);
 		SdkConfig.config = {
 			product_id: params?.product_id || '',
 			host: hostMap[_countryCode]

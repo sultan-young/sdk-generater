@@ -13,7 +13,7 @@ interface baseConfInterface {
     BASE_PATH: string,
     CTRL_PATH: string,
     SERVICE_PATH: string,
-    STATICS_PATH: string,
+    SDK_BUNDLE_PATH: string,
     INTERFACE_CACHE_TIME: number
 }
 
@@ -30,6 +30,6 @@ export const baseConf: baseConfInterface = {
     "BASE_PATH"   : path.join(__dirname, '..'),
     "CTRL_PATH"   : path.join(__dirname, '../controller'),
     "SERVICE_PATH": path.join(__dirname, '../service'),
-    "STATICS_PATH": path.join(__dirname, process.env.APP_ENV === 'production' ? './sdk' : '../../dist/sdk'),
+    "SDK_BUNDLE_PATH": path.join(__dirname, process.env.APP_ENV === 'production' ? './sdk' : '../../dist/sdk'),
     "INTERFACE_CACHE_TIME": Number(process.env.INTERFACE_CACHE_TIME)
 };

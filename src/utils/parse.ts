@@ -1,7 +1,13 @@
-function parseModule(paramsStr: string) {
-  const modules: { [key: string]: any } = {};
+import { IModule } from "../types/modules";
+
+export function parseModule(paramsStr: string) {
+  const modules: IModule = {};
   paramsStr.split("&").forEach((item) => {
-    const [moduleName, paramsStr] = item.split("@");
+    const [moduleName, paramsStr = ''] = item.split("@");
+    if (!paramsStr) {
+      modules[moduleName] = null;
+      return;
+    }
     const params = paramsStr.split(",").reduce((params, current) => {
       const [key, value] = current.split("=");
       params[key] = value;
@@ -12,4 +18,3 @@ function parseModule(paramsStr: string) {
   return modules;
 }
 
-export { parseModule };

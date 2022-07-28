@@ -46,9 +46,9 @@ router.get("/sdk", async (ctx, next) => {
   // await loadCtrltrols(ctx)
   const path = ctx.path.replace(/\//g, "");
   const modules = parseModule(ctx.querystring);
-  ctx.set("Content-Type", "text/javascript; charset=UTF-8");
-  
+  console.log('modules', modules);
 
+  ctx.set("Content-Type", "text/javascript; charset=UTF-8");
   ctx.body = generater.JsGen.build(modules);
 });
 
