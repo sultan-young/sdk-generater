@@ -1,8 +1,8 @@
 import path from "path";
 import fs from "fs";
-import {config} from "../config";
+import {config} from "../../config";
 
-const h5sdkPath = path.join(config.STATICS_PATH, "./scripts");
+const h5sdkPath = path.join(config.STATICS_PATH, "./");
 const h5sdk_files_temp = fs.readdirSync(h5sdkPath);
 const jsSdks: {[moduleName: string]: string} = {};
 

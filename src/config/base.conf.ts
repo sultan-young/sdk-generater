@@ -27,9 +27,9 @@ export const baseConf: baseConfInterface = {
             'PORT': Number(process.env.APP_PORT)
         }
     },
-    "BASE_PATH"   : path.join(__dirname, '../..'),
-    "CTRL_PATH"   : path.join(__dirname, '../../controller'),
-    "SERVICE_PATH": path.join(__dirname, '../../service'),
-    "STATICS_PATH": path.join(__dirname, '../../static_sdk'),
+    "BASE_PATH"   : path.join(__dirname, '..'),
+    "CTRL_PATH"   : path.join(__dirname, '../controller'),
+    "SERVICE_PATH": path.join(__dirname, '../service'),
+    "STATICS_PATH": path.join(__dirname, '../sdk_modules'),
     "INTERFACE_CACHE_TIME": Number(process.env.INTERFACE_CACHE_TIME)
 };

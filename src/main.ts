@@ -1,8 +1,8 @@
 import Koa from "koa";
 import koaRouter from "koa-router";
-import { config } from "./core/config";
+import { config } from "./config";
 import generater from "./core/generater";
-import { parseModule } from "./static_sdk/utils/parse";
+import { parseModule } from "./utils/parse";
 
 const app = new Koa();
 const router = new koaRouter();
